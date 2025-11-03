@@ -1,0 +1,37 @@
+import anthropic
+
+client = anthropic.Anthropic(api_key="your-key")
+
+DISTORTION_PROMPT = """Analyze this personal narrative for cognitive distortions from CBT:
+
+Text: {text}
+
+Identify any of these distortions present:
+1. All-or-nothing thinking (black/white, no middle ground)
+2. Overgeneralization (single event becomes pattern)
+3. Mental filter (focusing only on negatives)
+4. Disqualifying the positive (rejecting positive experiences)
+5. Jumping to conclusions (mind reading, fortune telling)
+6. Magnification/minimization (catastrophizing or minimizing)
+7. Emotional reasoning (feelings equal facts)
+8. Should statements (rigid rules about self/others)
+9. Labeling (attaching negative labels)
+10. Personalization (taking undue responsibility)
+
+Return JSON with:
+- distortions: array of detected distortion names
+- evidence: specific phrases demonstrating each distortion
+- confidence: 0-1 score for each detection
+- severity: low/medium/high based on language intensity"""
+
+def detect_distortions(transcription):
+    message = client.messages.create(
+        model="claude-3-5-sonnet-20241022",
+        max_tokens=1024,
+        messages=[{
+            "role": "user",
+            "content": DISTORTION_PROMPT.format(text=transcription)
+        }]
+    )
+    
+    return json.loads(message.content.text)
