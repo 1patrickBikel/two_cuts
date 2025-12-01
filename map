@@ -1,0 +1,8 @@
+two-cuts/
+├── README.md             # overview and setup instructions
+├── backend/              # API application, models, schemas, services (ingestion, classifier, reports)
+├── classification/       # emotion & narrative models, keyword maps
+├── data/                 # sample JSON files for users, memos and clusters
+├── notion/               # Notion sync script
+├── docs/                 # documentation (including software spec)
+└── tests/                # unit tests for the API
