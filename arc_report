@@ -1,0 +1,20 @@
+{
+  "user_id": "0338cb2c-b0ba-46f2-9cfb-8065798a5a8d",
+  "total_memos": 2,
+  "meta_theme_counts": {
+    "conflict": 2,
+    "absurdity": 1,
+    "trauma": 1
+  },
+  "narrative_function_counts": {
+    "planning_future": 1,
+    "integration_reflection": 1
+  },
+  "cognitive_state_counts": {
+    "numb": 1,
+    "calm": 1
+  },
+  "high_reframe_memo_ids": [
+    "05cb4bb9-2c58-406a-b329-555bb613012b"
+  ]
+}
